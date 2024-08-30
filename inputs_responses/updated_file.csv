@@ -1,0 +1,9 @@
+EMAIL,FIRSTNAME,LASTNAME,PASSWORD,REASON
+trungmailcsv@gmail.com,long12,ngan221,34223.54354,
+trungmailcsv@gmail.com,long1324342,ngan221,34223.54354,Duplicate email in file
+Monday@gmail.com,1,11,123,
+tuedday@gmail.com,2,22,124,
+Wednesday@gmail.com,3,33,125,
+Thursday@gmail.com,4,44,126,
+Friday@gmail.com,5,55,127,
+mck@gmail.com,4,5453,2423,Duplicate email in database

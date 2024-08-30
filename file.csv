@@ -1,0 +1,6 @@
+EMAIL,FIRSTNAME,LASTNAME,PASSWORD,REASON
+hacker@gmail.com,hacker,hacker1,hacker123,
+admin@gmail.com,admin,admin1,admin123,Duplicate email in database
+,,,,Email is null or empty
+user@gmail.com,user,user1,user123,Duplicate email in database
+hacker@gmail.com,hacker,hacker1,hacker123,Duplicate email in file

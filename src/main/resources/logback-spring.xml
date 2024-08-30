@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- Console Appender for general logs -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d %thread %-5level %-50logger{40} %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- File Appender for general logs -->
+    <appender name="GENERAL_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/general.log</file>
+        <encoder>
+            <pattern>%d %thread %-5level %-50logger{40} %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- File Appender for email logs -->
+    <appender name="MAIL_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/duedate-alerts.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Logger for email-related messages -->
+    <logger name="com.mycompany.dueDate" level="INFO" additivity="false">
+        <appender-ref ref="MAIL_FILE"/>
+    </logger>
+
+    <!-- Appender for Overdue Alerts -->
+    <appender name="OVERDUE_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/overdue-alerts.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Logger for Overdue Alerts -->
+    <logger name="com.mycompany.overdue" level="INFO" additivity="false">
+        <appender-ref ref="OVERDUE_FILE"/>
+    </logger>
+
+    <!-- Appender for  Alerts -->
+    <appender name="MAIL" class="ch.qos.logback.core.FileAppender">
+        <file>logs/mail-alerts.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Logger for  Alerts -->
+    <logger name="com.mycompany.alerts" level="INFO" additivity="false">
+        <appender-ref ref="MAIL"/>
+    </logger>
+
+    <!-- Root logger for other messages -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="GENERAL_FILE"/>
+    </root>
+
+</configuration>

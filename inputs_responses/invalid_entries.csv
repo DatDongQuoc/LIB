@@ -1,0 +1,7 @@
+EMAIL,FIRSTNAME,LASTNAME,PASSWORD,REASON
+trungmailcsv@gmail.com,long1324342,ngan221,34223.54354,
+mck@gmail.com,4,5453,2423,Duplicate email in database
+,,,,Email is null or empty
+,,,,Email is null or empty
+zico@gmai.com,123,h123,h321,
+zico@gmai.com,123453,h12fd3,h325431,Duplicate email in file

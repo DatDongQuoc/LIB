@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Users</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"  />
+</head>
+<body>
+<div th:insert="fragments/header2 :: header"></div>
+<div class="container-fluid text-center">
+    <div><h2>Manage Users</h2></div>
+    <div class="m-2">
+        <a class="h3" th:href="@{/users/new}">Add New User</a>
+        <a class="h3"> - </a>
+        <a class="h3" th:href="@{/users/export}">Export to CSV</a>
+    </div>
+
+    <div th:if="${message}" class="alert alert-success text-center">
+        [[${message}]]
+    </div>
+
+    <div>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>E-mail</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="user : ${listUsers}">
+                <tr>
+                    <td>[[${user.id}]]</td>
+                    <td>[[${user.email}]]</td>
+                    <td>[[${user.firstName}]]</td>
+                    <td>[[${user.lastName}]]</td>
+                    <td>
+                        <a class="h4 mr-3" th:href="@{'/users/edit/' + ${user.id}}">Edit</a>
+                        <a class="h4" th:href="@{'/users/delete/' + ${user.id}}">Delete</a>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+
+    <div>&nbsp;</div>
+    <script type="text/javascript">
+        function clearSearch() {
+            window.location = "[[@{/users}]]";
+        }
+    </script>
+
+    <div>
+        Total Users : [[${totalItems}]] - Page [[${currentPage}]] of [[${totalPages}]]
+        &nbsp; - &nbsp;
+        <span th:each="i: ${#numbers.sequence(1, totalPages)}">
+            <a th:if="${currentPage != i}" th:href="@{'/page/' + ${i} + ${keyword != null ? '?keyword=' + keyword : ''}}">[[${i}]]</a>
+            <span th:unless="${currentPage != i}">[[${i}]]</span>
+            &nbsp;&nbsp;
+        </span>
+    </div>
+
+    <div>&nbsp;&nbsp;</div>
+    <div>
+        <form method="POST" action="/users/upload" enctype="multipart/form-data">
+            <input type="file" name="file" />
+            <button type="submit">Import CSV</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
