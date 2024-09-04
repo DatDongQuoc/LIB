@@ -54,3 +54,6 @@ public class RedisConfig {
         return objectMapper;
     }
 }
+
+// start redis server:
+// bash: redis-server

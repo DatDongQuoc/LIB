@@ -75,6 +75,7 @@ public class BookServiceImpl implements BookService {
 	@Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
 	@Override
 	@Cacheable(value = "books", key = "#request.pageNumber + '-' + #request.pageSize + '-' + 'filter'")
+	// pageNumber = 0 and pageSize = 0 (in default) leads to error
 	public BookPageResponse getBookListByPage(BookPageRequest request) {
 		int pageNumber = request.getPageNumber() < 1 ? 0 : request.getPageNumber() - 1;
 		int pageSize = request.getPageSize() < 1 ? 5 : request.getPageSize();

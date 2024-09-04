@@ -1,4 +1,0 @@
-EMAIL,FIRSTNAME,LASTNAME,PASSWORD,REASON
-,,,,Email is null or empty
-,,,,Email is null or empty
-,,,,Email is null or empty

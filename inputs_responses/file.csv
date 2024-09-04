@@ -1,7 +1,0 @@
-EMAIL,FIRSTNAME,LASTNAME,PASSWORD,REASON
-5h25@gmail.com,1,2,3,Duplicate email in database
-5h25AM@gmail.com,1,2,3,Duplicate email in database
-,,,,Email is null or empty
-,,,,Email is null or empty
-5h27@gmail.com,2,3,4,
-5h25@gmail.com,4,5,6,Duplicate email in database
